@@ -5,4 +5,16 @@ class EmployeesController < ApplicationController
     render json: employee, except:[:updated_at, :created_at]
     end
 
+
+    def create 
+    employee = Employee.new(name: params[:name], title:params[:title], experience: params[:experience])
+    # byebug
+        if employee.valid? 
+        employee.save 
+        render json: employee, except: [:updated_at, :created_at]
+        else
+        nil 
+        end
+    end
+
 end
