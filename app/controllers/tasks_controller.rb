@@ -18,4 +18,10 @@ class TasksController < ApplicationController
     task.destroy
     end
 
+    def show 
+    task = Task.find_by(id:params[:id])
+    employee = Employee.find_by(id:task.employee_id)
+    render json:employee
+    end
+
 end

@@ -16,6 +16,8 @@ class EmployeesController < ApplicationController
         end
     end
 
+
+
     def destroy 
     employee = Employee.find_by(id:params[:id])
     employee.destroy
