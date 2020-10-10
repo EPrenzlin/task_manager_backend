@@ -7,8 +7,7 @@ class EmployeesController < ApplicationController
 
 
     def create 
-    employee = Employee.new(name: params[:name], title:params[:title], experience: params[:experience])
-    # byebug
+    employee = Employee.new(name: params[:name], title:params[:title], experience: params[:experience], expertise: params[:expertise])
         if employee.valid? 
         employee.save 
         render json: employee, except: [:updated_at, :created_at]
